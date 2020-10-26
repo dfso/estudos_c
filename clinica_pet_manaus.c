@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-int menu(int);
+char menu(int);
 
 
 int main()
@@ -91,7 +91,7 @@ int main()
     for(;;) {
 
         opt = menu(is_admin);
-        if(opt == 1) {
+        if(opt == '1') {
             printf("\n<<<<<<<<<<<<<<<<<<<< Cadastrar funcionarios >>>>>>>>>>>>>>>>>>>>\n");
             printf("Nome do funcionario: ");
             gets(nome_funci[funci_qtd]);
@@ -103,7 +103,7 @@ int main()
             printf("<<<<<<<<<<<<<<<<<<<< Fim do cadastro >>>>>>>>>>>>>>>>>>>>\n");
             getchar();
         }
-        else if(opt == 2) {
+        else if(opt == '2') {
             printf("\n<<<<<<<<<<<<<<<<<<<< Cadastrar animais >>>>>>>>>>>>>>>>>>>>\n");
             printf("Nome do animal: ");
             gets(animal_nome[animal_qtd]);
@@ -121,7 +121,7 @@ int main()
             printf("<<<<<<<<<<<<<<<<<<<< Fim do cadastro >>>>>>>>>>>>>>>>>>>>\n");
             getchar();
         }
-        else if(opt == 3) {
+        else if(opt == '3') {
             printf("\n<<<<<<<<<<<<<<<<<<<< Cadastrar produtos >>>>>>>>>>>>>>>>>>>>\n");
             printf("Nome do produto: ");
             gets(prod_nome[prod_qtd]);
@@ -137,7 +137,7 @@ int main()
             printf("<<<<<<<<<<<<<<<<<<<< Fim do cadastro >>>>>>>>>>>>>>>>>>>>\n");
             getchar();
         }
-        else if(opt == 4) {
+        else if(opt == '4') {
             printf("\n<<<<<<<<<<<<<<<<<<<< Cadastrar servicos >>>>>>>>>>>>>>>>>>>>\n");
             printf("Nome do servico: ");
             gets(servico_nome[servico_qtd]);
@@ -151,7 +151,7 @@ int main()
             printf("<<<<<<<<<<<<<<<<<<<< Fim do cadastro >>>>>>>>>>>>>>>>>>>>\n");
             getchar();
         }
-        else if(opt == 5) {
+        else if(opt == '5') {
             if(animal_qtd > 0 && servico_qtd > 0) {
                 int id_animal, id_servico;
                 printf("\n<<<<<<<<<<<<<<<<<<<< Agendar servico >>>>>>>>>>>>>>>>>>>>\n");
@@ -189,7 +189,7 @@ int main()
                 continue;
             }
         }
-        else if(opt == 6) {
+        else if(opt == '6') {
             printf("\n<<<<<<<<<<<<<<<<<<<< Gerar relatorio mensal >>>>>>>>>>>>>>>>>>>>\n");
             printf("\t* Quantidade de servicos realizados: %d\n", total_servicos_agendados);
             printf("\t* Tempo total dos servicos[em minutos]: %.2f\n", tempo_total);
@@ -197,7 +197,7 @@ int main()
             printf("<<<<<<<<<<<<<<<<<<<< Fim relatorio mensal >>>>>>>>>>>>>>>>>>>>\n");
             getchar();
         }
-        else if(opt == 0) {
+        else if(opt == '0') {
             printf("fechando o programa...\n\n");
             exit(0);
         }
@@ -209,7 +209,7 @@ int main()
 }   // main
 
 
-int menu(int is_admin) {
+char menu(int is_admin) {
     int opt;
     char temp;
 
@@ -225,8 +225,7 @@ int menu(int is_admin) {
         printf("[6] gerar relatorio mensal\n");
         printf("[0] sair do programa\n");
         printf(">> ");
-        scanf("%d", &opt);
-        scanf("%c", &temp);
+        scanf("%c", &opt);
     }
     else {
         system("clear");
@@ -236,8 +235,7 @@ int menu(int is_admin) {
         printf("[5] agendar servico\n");
         printf("[0] sair do programa\n");
         printf(">> ");
-        scanf("%d", &opt);
-        scanf("%c", &temp);
+        scanf("%c", &opt);
     }
     return opt;
 }
