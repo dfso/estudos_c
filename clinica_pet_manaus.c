@@ -73,6 +73,7 @@ int main()
         }
         else {
             printf("login ou senha invalidos!!!\n\n");
+            getchar();
             main();
         }
     }
@@ -125,7 +126,8 @@ int main()
             printf("Nome do produto: ");
             gets(prod_nome[prod_qtd]);
             printf("Quantidade do produto: ");
-            gets(prod_quantidade[prod_qtd]);
+            scanf("%f", &prod_quantidade[prod_qtd]);
+            scanf("%c", &temp);
             printf("Validade do produto: ");
             gets(prod_validade[prod_qtd]);
             printf("Valor do produto[R$]: ");
