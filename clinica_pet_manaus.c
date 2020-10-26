@@ -217,7 +217,7 @@ int menu(int is_admin) {
         system("clear");
         printf("\n<<<<<<<<<<<<<<<<<<<< menu principal >>>>>>>>>>>>>>>>>>>>\n");
         printf("Digite um numero referente a funcao desejada:\n");
-        printf("[1] cadastrar funcinario\n");
+        printf("[1] cadastrar funcionario\n");
         printf("[2] cadastrar animal\n");
         printf("[3] cadastrar produto\n");
         printf("[4] cadastrar servico\n");
