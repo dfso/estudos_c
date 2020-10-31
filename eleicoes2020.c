@@ -4,6 +4,9 @@
 // biblioteca usada para manipular strings
 #include <string.h>
 
+// usa a funcao sleep() dessa biblioteca para pausar o programa
+#include <windows.h>
+
 int main()
 {
     // voto lido do eleitor
@@ -56,7 +59,7 @@ int main()
     // loop para a leitura de votos dos eleitores
     for(i=0; i<eleitores; i++) {
         // limpa a tela do console
-        system("clear");
+        system("cls");
         printf("---------------JUSTICA ELEITORAL - VOTA MANAUS---------------\n\n");
         printf("Insira o numero do seu candidato ou [1]NULO [2]EM BRANCO\n>> ");
         scanf("%d", &voto);
@@ -66,12 +69,15 @@ int main()
             qtd_votos[3] += 1;
             printf("VOTO COMPUTADO\n");
             printf(">>>FIM<<<\n");
+            // pausa por 1 segundo
+            sleep(1);
         }
         else if(voto == 2) {
             // voto EM BRANCO
             qtd_votos[4] += 1;
             printf("VOTO COMPUTADO\n");
             printf(">>>FIM<<<\n");
+            sleep(1);
         }
         else if(voto == 1212) {
             printf("Voce esta votando:\n\n");
@@ -83,6 +89,7 @@ int main()
                 qtd_votos[0] += 1;
                 printf("VOTO COMPUTADO\n");
                 printf(">>>FIM<<<\n");
+                sleep(1);
             }
             // decrementa o iterador e retorna ao loop
             else {
@@ -100,6 +107,7 @@ int main()
                 qtd_votos[1] += 1;
                 printf("VOTO COMPUTADO\n");
                 printf(">>>FIM<<<\n");
+                sleep(1);
             }
             else {
                 i-=1;
@@ -116,6 +124,7 @@ int main()
                 qtd_votos[2] += 1;
                 printf("VOTO COMPUTADO\n");
                 printf(">>>FIM<<<\n");
+                sleep(1);
             }
             else {
                 i-=1;
@@ -132,6 +141,7 @@ int main()
                 qtd_votos[3] +=1;
                 printf("VOTO COMPULADO\n");
                 printf(">>>FIM<<<\n");
+                sleep(1);
             }
             else {
                 i-=1;
@@ -147,6 +157,7 @@ int main()
     for(i=0; i<3; i++)
         if(qtd_votos[i] > maior_voto) {
             maior_voto = qtd_votos[i];
+            // edita o nome do 1o colocado
             strcpy(primeiro_colocado, candidatos[i]);
         }
 
@@ -157,15 +168,16 @@ int main()
             continue;
         else if(qtd_votos[i] <= maior_voto && qtd_votos[i] > segundo_lugar){
             segundo_lugar = qtd_votos[i];
+            // edita o nome do 2o colocado
             strcpy(segundo_colocado, candidatos[i]);
         }
     }
     
-    system("clear");
+    system("cls");
     printf("---------------RESULTADO DAS ELEICAO---------------\n");
     // se o 1° colocado nao tem 50% + 1 do total de votos validos
     if(maior_voto < ((float)votos_validos/2)+1)
-        printf("Havera 2º turno entre os candidatos <<%s>> e <<%s>>\n\n", primeiro_colocado, segundo_colocado);
+        printf("Havera 2o turno entre os candidatos <<%s>> e <<%s>>\n\n", primeiro_colocado, segundo_colocado);
 
     else
         printf("\n\nCandidato eleito: >>>>>%s<<<<<\n\n", primeiro_colocado);
