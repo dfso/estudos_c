@@ -11,9 +11,11 @@ typedef struct Questao {
 int main()
 {
     int i, j, resposta;
-    int qtd_questoes = 4;
+    int qtd_questoes = 5;
     int corretas = 0, incorretas = 0;
+
     Questao logica[5];
+
     strcpy(logica[0].enunciado, "Qual operador retorna o resto de uma divisao?\n");
     strcpy(logica[0].alternativas[0], "1) &\n");
     strcpy(logica[0].alternativas[1], "2) !\n");
@@ -42,10 +44,15 @@ int main()
     strcpy(logica[3].alternativas[3], "4) fflush()\n");
     logica[3].resposta = 0;
 
-
+    strcpy(logica[4].enunciado, "E' INCORRETO afirmar sobre a declaracao 'int idades[5];'\n");
+    strcpy(logica[4].alternativas[0], "1) declara uma variavel do tipo inteiro\n");
+    strcpy(logica[4].alternativas[1], "2) declara uma variavel composta homogenea\n");
+    strcpy(logica[4].alternativas[2], "3) a variavel guarda apenas inteiros de no maximo 5 digitos\n");
+    strcpy(logica[4].alternativas[3], "4) a variavel guarda no maximo 5 valores do tipo inteiro\n");
+    logica[4].resposta = 2;
 
     printf("--- LINGUAGEM DE PROGRAMACAO ---\n");
-    for(i=0; i<4; i++) {
+    for(i=0; i<5; i++) {
         printf("%s", logica[i].enunciado);
         for(j=0; j<4; j++)
             printf("%s", logica[i].alternativas[j]);
